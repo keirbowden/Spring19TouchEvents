@@ -13,7 +13,6 @@
         </div>
     </div>
     
-    Logs length = {!v.logs.length}<br/>
     <aura:iteration items="{!v.logs}" var="log">
         <div> {!log}
         </div>

@@ -1,4 +1,9 @@
 ({
+    canvas : null,
+    ctx : null, 
+    empty: true,
+    mouse : {x: 0, y: 0},
+    empty: true,
     setupCanvas : function(component)
     {
         try
@@ -60,14 +65,13 @@
         try
         {
             var target;
-                this.log(component, 'mobile!');
-                this.log(component, 'Changed touches = ' + event.changedTouches);
-                target = event.changedTouches[0];
-                this.log(component, 'Target = ' + target);
-	            var rect=canvas.getBoundingClientRect();
-    	        this.log(component, 'Top = ' + rect.top + ', left = ' + rect.left);
-			    this.mouse.x = target.clientX - rect.left;
-			    this.mouse.y = target.clientY - rect.top;
+            this.log(component, 'Updating position');
+            this.log(component, 'Changed touches = ' + event.changedTouches);
+            target = event.changedTouches[0];
+	        var rect=canvas.getBoundingClientRect();
+			this.mouse.x = target.clientX - rect.left;
+			this.mouse.y = target.clientY - rect.top;
+            this.log(component, 'Mouse coords = ' + this.mouse.x + ', ' + this.mouse.y);
         }
         catch (e) 
         {
