@@ -1,0 +1,22 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+
+    <aura:attribute name="logs" type="String[]" />
+    <aura:attribute name="initialised" type="Boolean" default="false"/>
+    <aura:attribute name="idx" type="Integer" default="1" />
+
+    <aura:handler name="render" value="{!this}" action="{!c.rendered}"/>
+
+    <div aura:id="touchdiv" style="padding-top:10px; width:100%">
+        <p class="message">Initialised = {!v.initialised} - draw on the canvas below</p>
+        <div>
+            <canvas class="box" id="paint" style="width:100%; height: 300px"></canvas>
+        </div>
+    </div>
+    
+    Logs length = {!v.logs.length}<br/>
+    <aura:iteration items="{!v.logs}" var="log">
+        <div> {!log}
+        </div>
+    </aura:iteration>
+    
+</aura:component>
